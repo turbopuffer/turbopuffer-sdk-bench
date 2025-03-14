@@ -180,7 +180,7 @@ wheels = [
 [[package]]
 name = "turbopuffer"
 version = "0.0.1a0"
-source = { git = "ssh://git@github.com/stainless-sdks/turbopuffer-python.git#4d62a962d69c26e5d336e3bcbf1fc76101461ed3" }
+source = { git = "ssh://git@github.com/stainless-sdks/turbopuffer-python.git#ebbb20de3bc11cab62138a3ddf83ef9479378a5b" }
 dependencies = [
     { name = "anyio" },
     { name = "distro" },
