@@ -12,6 +12,8 @@ NUM_NAMESPACES = 64
 NUM_QUERIES = 4096
 NUM_WORKERS = 128
 
+semaphore = asyncio.Semaphore(NUM_WORKERS)
+
 def fail_hard(fn):
     async def wrapper(*args, **kwargs):
         try:
@@ -24,19 +26,21 @@ def fail_hard(fn):
 
 @fail_hard
 async def do_upsert(tpuf, ns, i, docs):
-    print(f"[{i+1}/{NUM_NAMESPACES}] Upserting {len(docs)} documents into namespace {ns}")
-    await util.upsert_into(tpuf, ns, docs)
+    async with semaphore:
+        print(f"[{i+1}/{NUM_NAMESPACES}] Upserting {len(docs)} documents into namespace {ns}")
+        await util.upsert_into(tpuf, ns, docs)
 
 
 @fail_hard
 async def do_query(tpuf, ns, i):
-    print(f"[{i+1}/{NUM_QUERIES}] Querying namespace {ns}")
-    results = await tpuf.namespaces.query(
-        namespace=ns,
-        vector=util.random_vector(),
-        top_k=1,
-    )
-    assert len(results) == 1, f"expected exactly one result, got {len(results)}"
+    async with semaphore:
+        print(f"[{i+1}/{NUM_QUERIES}] Querying namespace {ns}")
+        results = await tpuf.namespaces.query(
+            namespace=ns,
+            vector=util.random_vector(),
+            top_k=1,
+        )
+        assert len(results) == 1, f"expected exactly one result, got {len(results)}"
 
 
 @util.wrap_async_thread
