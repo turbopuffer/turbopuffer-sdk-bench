@@ -2,7 +2,7 @@ import random
 import string
 import uuid
 
-import turbopuffer as tpuf
+from turbopuffer import Turbopuffer
 
 VECTOR_DIMS = 1536
 
@@ -28,10 +28,13 @@ def random_documents(num_docs, text_content_size):
     return [random_document(text_content_size) for _ in range(num_docs)]
 
 def random_namespace():
-    return tpuf.Namespace(f"turbopuffer-sdk-bench-python-{random_string(12)}")
+    return f"turbopuffer-sdk-bench-python-{random_string(12)}"
 
-def upsert_into(ns, docs):
-    ns.upsert(
-        docs,
-        distance_metric='cosine_distance'
+def upsert_into(tpuf, ns, docs):
+    tpuf.namespaces.upsert(
+        namespace=ns,
+        documents={
+            "upserts": docs,
+            "distance_metric": "cosine_distance",
+        },
     )

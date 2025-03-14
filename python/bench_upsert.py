@@ -1,12 +1,13 @@
 import sys
 
 import pyperf
+from turbopuffer import Turbopuffer
 
 import util
 
 
-def run_upsert_benchmark(docs):
-    util.upsert_into(util.random_namespace(), docs)
+def run_upsert_benchmark(tpuf, docs):
+    util.upsert_into(tpuf, util.random_namespace(), docs)
 
 
 def main():
@@ -17,6 +18,7 @@ def main():
     runner = pyperf.Runner(processes=1, warmups=1, values=10)
     runner.parse_args()
 
+    tpuf = Turbopuffer()
     upsert_docs = []
 
     # Generate documents outside the benchmark function.
@@ -26,6 +28,7 @@ def main():
     runner.bench_func(
         "upsert",
         run_upsert_benchmark,
+        tpuf,
         upsert_docs,
     )
 

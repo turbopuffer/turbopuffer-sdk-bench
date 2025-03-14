@@ -3,8 +3,7 @@ name = "turbopuffer-sdk-bench-python"
 version = "0.1.0"
 description = "Benchmarks for the turbopuffer Python SDK"
 requires-python = ">=3.12"
-dependencies = [
-    "pyperf>=2.9.0",
-    "turbopuffer[fast]>=0.1.33",
-    "typing-extensions>=4.12.2",
-]
+dependencies = ["pyperf>=2.9.0", "turbopuffer", "typing-extensions>=4.12.2"]
+
+[tool.uv.sources]
+turbopuffer = { git = "ssh://git@github.com/stainless-sdks/turbopuffer-python.git" }

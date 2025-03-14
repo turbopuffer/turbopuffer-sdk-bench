@@ -1,8 +1,10 @@
 from concurrent.futures import ThreadPoolExecutor
 import os
-import pyperf
 import sys
 import traceback
+
+import pyperf
+from turbopuffer import Turbopuffer
 
 import util
 
@@ -22,25 +24,26 @@ def fail_hard(fn):
 
 
 @fail_hard
-def do_upsert(ns, i, docs):
-    print(f"[{i+1}/{NUM_NAMESPACES}] Upserting {len(docs)} documents into namespace {ns.name}")
-    util.upsert_into(ns, docs)
+def do_upsert(tpuf, ns, i, docs):
+    print(f"[{i+1}/{NUM_NAMESPACES}] Upserting {len(docs)} documents into namespace {ns}")
+    util.upsert_into(tpuf, ns, docs)
 
 
 @fail_hard
-def do_query(ns, i):
-    print(f"[{i+1}/{NUM_QUERIES}] Querying namespace {ns.name}")
-    results = ns.query(
+def do_query(tpuf, ns, i):
+    print(f"[{i+1}/{NUM_QUERIES}] Querying namespace {ns}")
+    results = tpuf.namespaces.query(
+        namespace=ns,
         vector=util.random_vector(),
         top_k=1,
     )
     assert len(results) == 1, f"expected exactly one result, got {len(results)}"
 
 
-def run_query_scale_benchmark(namespaces):
+def run_query_scale_benchmark(tpuf, namespaces):
     with ThreadPoolExecutor(max_workers=NUM_WORKERS) as executor:
         for i in range(NUM_QUERIES):
-            executor.submit(do_query, namespaces[i % NUM_NAMESPACES], i)
+            executor.submit(do_query, tpuf, namespaces[i % NUM_NAMESPACES], i)
 
 
 def main():
@@ -51,6 +54,7 @@ def main():
     runner = pyperf.Runner(processes=1, warmups=0, values=10)
     runner.parse_args()
 
+    tpuf = Turbopuffer()
     namespaces = [util.random_namespace() for _ in range(NUM_NAMESPACES)]
 
     # Generate a small number of documents in a fair number of namespaces
@@ -59,11 +63,12 @@ def main():
         docs = util.random_documents(num_docs=NUM_DOCS_PER_NAMESPACE, text_content_size=8)
         with ThreadPoolExecutor(max_workers=NUM_WORKERS) as executor:
             for i, ns in enumerate(namespaces):
-                executor.submit(do_upsert, ns, i, docs)
+                executor.submit(do_upsert, tpuf, ns, i, docs)
 
     runner.bench_func(
         "query_scale",
         run_query_scale_benchmark,
+        tpuf,
         namespaces,
     )
 
