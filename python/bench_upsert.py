@@ -1,13 +1,13 @@
 import sys
 
 import pyperf
-from turbopuffer import Turbopuffer
 
 import util
 
 
-def run_upsert_benchmark(tpuf, docs):
-    util.upsert_into(tpuf, util.random_namespace(), docs)
+@util.wrap_async_thread
+async def run_upsert_benchmark(tpuf, docs):
+    await util.upsert_into(tpuf, util.random_namespace(), docs)
 
 
 def main():
@@ -18,7 +18,8 @@ def main():
     runner = pyperf.Runner(processes=1, warmups=1, values=10)
     runner.parse_args()
 
-    tpuf = Turbopuffer()
+    util.start_async_thread()
+    tpuf = util.run_on_async_thread(util.make_client())
     upsert_docs = []
 
     # Generate documents outside the benchmark function.
@@ -31,7 +32,6 @@ def main():
         tpuf,
         upsert_docs,
     )
-
 
 if __name__ == "__main__":
     main()

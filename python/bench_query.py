@@ -1,14 +1,14 @@
 import sys
 
 import pyperf
-from turbopuffer import Turbopuffer
 
 import util
 
 NUM_DOCS = 256
 
-def run_query_benchmark(tpuf, ns):
-    results = tpuf.namespaces.query(
+@util.wrap_async_thread
+async def run_query_benchmark(tpuf, ns):
+    results = await tpuf.namespaces.query(
         namespace=ns,
         vector=util.random_vector(),
         include_attributes=True,
@@ -26,7 +26,8 @@ def main():
     runner = pyperf.Runner(processes=1, warmups=1, values=10)
     runner.parse_args()
 
-    tpuf = Turbopuffer()
+    util.start_async_thread()
+    tpuf = util.run_on_async_thread(util.make_client())
     query_ns = util.random_namespace()
 
     # Generate some document to query outside the benchmark function.
