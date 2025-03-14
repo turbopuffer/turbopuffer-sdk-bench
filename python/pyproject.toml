@@ -12,4 +12,4 @@ dependencies = [
 
 [tool.uv.sources]
 turbopuffer = { git = "ssh://git@github.com/stainless-sdks/turbopuffer-python.git", branch = "perf" }
-httpcore = { git = "https://github.com/MtkN1/httpcore-speedups" }
+httpcore = { git = "https://github.com/benesch/httpcore-speedups" }

@@ -54,7 +54,7 @@ wheels = [
 [[package]]
 name = "httpcore"
 version = "1.0.7"
-source = { git = "https://github.com/MtkN1/httpcore-speedups#141ba50cff6751f1df11303b7cc01143714ae796" }
+source = { git = "https://github.com/benesch/httpcore-speedups#86dd965c0605dcc7a6c4649717539c2f65bf3fbf" }
 dependencies = [
     { name = "certifi" },
     { name = "h11" },
@@ -199,7 +199,7 @@ dependencies = [
 
 [package.metadata]
 requires-dist = [
-    { name = "httpcore", git = "https://github.com/MtkN1/httpcore-speedups" },
+    { name = "httpcore", git = "https://github.com/benesch/httpcore-speedups" },
     { name = "pyperf", specifier = ">=2.9.0" },
     { name = "turbopuffer", git = "ssh://git@github.com/stainless-sdks/turbopuffer-python.git?branch=perf" },
     { name = "typing-extensions", specifier = ">=4.12.2" },
