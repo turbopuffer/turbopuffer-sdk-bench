@@ -4,6 +4,8 @@ import pyperf
 
 import util
 
+NUM_DOCS = 1024
+BASE64_VECTORS = True
 
 def run_upsert_benchmark(docs):
     util.upsert_into(util.random_namespace(), docs)
@@ -21,7 +23,7 @@ def main():
 
     # Generate documents outside the benchmark function.
     if runner.args.worker:
-        upsert_docs = util.random_documents(num_docs=1024, text_content_size=8)
+        upsert_docs = util.random_documents(num_docs=NUM_DOCS, text_content_size=8, base64_vectors=BASE64_VECTORS)
 
     runner.bench_func(
         "upsert",
