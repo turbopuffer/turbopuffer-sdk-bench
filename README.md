@@ -6,6 +6,7 @@ of different turbopuffer SDKs.
 Available benchmarks:
 
   * [`python`](./python)
+  * [`typescript`](./typescript)
 
 ## Details
 
