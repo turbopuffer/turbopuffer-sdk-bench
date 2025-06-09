@@ -1,13 +1,11 @@
-import { randomBytes } from 'crypto';
 import { v4 as uuidv4 } from 'uuid';
-import { Turbopuffer, Namespace, UpsertRows, AttributeType } from '@turbopuffer/turbopuffer';
+import { Turbopuffer } from '@turbopuffer/turbopuffer';
+import { Row } from '@turbopuffer/turbopuffer/resources/namespaces';
 
 const VECTOR_DIMS = 1536;
 
 export function newClient(): Turbopuffer {
-    return new Turbopuffer({
-        apiKey: process.env.TURBOPUFFER_API_KEY!
-    });
+    return new Turbopuffer();
 }
 
 export function randomFloat(): number {
@@ -25,7 +23,7 @@ export function randomVector(): number[] {
     return Array.from({ length: VECTOR_DIMS }, () => randomFloat());
 }
 
-export function randomDocument(textContentSize: number): object {
+export function randomDocument(textContentSize: number): Row {
     return {
         id: uuidv4(),
         vector: randomVector(),
@@ -33,15 +31,15 @@ export function randomDocument(textContentSize: number): object {
     };
 }
 
-export function randomDocuments(numDocs: number, textContentSize: number): UpsertRows {
-    return Array.from({ length: numDocs }, () => randomDocument(textContentSize)) as UpsertRows;
+export function randomDocuments(numDocs: number, textContentSize: number): Row[] {
+    return Array.from({ length: numDocs }, () => randomDocument(textContentSize));
 }
 
 export function randomNamespace(client: Turbopuffer): any {
     return client.namespace(`turbopuffer-sdk-bench-typescript-${randomString(12)}`);
 }
 
-export async function upsertInto(ns: Namespace, rows: UpsertRows) {
+export async function upsertInto(ns: Turbopuffer.Namespace, rows: Row[]) {
     await ns.write({
         upsert_rows: rows,
         distance_metric: 'cosine_distance'

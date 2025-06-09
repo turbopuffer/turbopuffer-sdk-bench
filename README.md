@@ -14,4 +14,5 @@ Available benchmarks:
 * Benchmarks are single-threaded.
 * Benchmarks include the latency of talking to the turbopuffer API, so
   ideally run them from the same cloud provider and region as the turbopuffer
-  cluster you're accessing.
+  cluster you're accessing. Set the `TURBOPUFFER_REGION` environment
+  variable accordingly.

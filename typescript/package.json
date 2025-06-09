@@ -4,7 +4,7 @@
   "description": "Benchmarks for the turbopuffer TypeScript SDK",
   "type": "module",
   "dependencies": {
-    "@turbopuffer/turbopuffer": "^0.9.1",
+    "@turbopuffer/turbopuffer": "^0.10.0",
     "@types/node": "^22.0.0",
     "@types/uuid": "^10.0.0",
     "p-limit": "^6.2.0",
