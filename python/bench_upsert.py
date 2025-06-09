@@ -6,7 +6,7 @@ import util
 
 
 def run_upsert_benchmark(docs):
-    util.upsert_into(util.random_namespace(), docs)
+    util.upsert_into(util.random_namespace(util.new_client()), docs)
 
 
 def main():

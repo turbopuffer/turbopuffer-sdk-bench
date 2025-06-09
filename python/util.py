@@ -19,19 +19,20 @@ def random_document(text_content_size):
     return {
         "id": str(uuid.uuid4()),
         "vector": random_vector(),
-        "attributes": {
-            "content": random_string(text_content_size)
-        }
+        "content": random_string(text_content_size),
     }
 
 def random_documents(num_docs, text_content_size):
     return [random_document(text_content_size) for _ in range(num_docs)]
 
-def random_namespace():
-    return tpuf.Namespace(f"turbopuffer-sdk-bench-python-{random_string(12)}")
+def new_client():
+    return tpuf.Turbopuffer(region="gcp-us-central1")
+
+def random_namespace(client):
+    return client.namespace(f"turbopuffer-sdk-bench-python-{random_string(12)}")
 
 def upsert_into(ns, docs):
-    ns.upsert(
-        docs,
+    ns.write(
+        upsert_rows=docs,
         distance_metric='cosine_distance'
     )

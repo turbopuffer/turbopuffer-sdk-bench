@@ -8,12 +8,11 @@ NUM_DOCS = 256
 
 def run_query_benchmark(ns):
     results = ns.query(
-        vector=util.random_vector(),
+        rank_by=["vector", "ANN", util.random_vector()],
         include_attributes=True,
-        include_vectors=True,
         top_k=1200,
     )
-    assert len(results) == NUM_DOCS, f"expected {NUM_DOCS} results, got {len(results)}"
+    assert len(results.rows) == NUM_DOCS, f"expected {NUM_DOCS} results, got {len(results)}"
 
 
 def main():
@@ -24,7 +23,7 @@ def main():
     runner = pyperf.Runner(processes=1, warmups=1, values=10)
     runner.parse_args()
 
-    query_ns = util.random_namespace()
+    query_ns = util.random_namespace(util.new_client())
 
     # Generate some document to query outside the benchmark function.
     if runner.args.worker:

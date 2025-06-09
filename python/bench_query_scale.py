@@ -23,18 +23,18 @@ def fail_hard(fn):
 
 @fail_hard
 def do_upsert(ns, i, docs):
-    print(f"[{i+1}/{NUM_NAMESPACES}] Upserting {len(docs)} documents into namespace {ns.name}")
+    print(f"[{i+1}/{NUM_NAMESPACES}] Upserting {len(docs)} documents into namespace {ns.id}")
     util.upsert_into(ns, docs)
 
 
 @fail_hard
 def do_query(ns, i):
-    print(f"[{i+1}/{NUM_QUERIES}] Querying namespace {ns.name}")
+    print(f"[{i+1}/{NUM_QUERIES}] Querying namespace {ns.id}")
     results = ns.query(
-        vector=util.random_vector(),
+        rank_by=["vector", "ANN", util.random_vector()],
         top_k=1,
     )
-    assert len(results) == 1, f"expected exactly one result, got {len(results)}"
+    assert len(results.rows) == 1, f"expected exactly one result, got {len(results)}"
 
 
 def run_query_scale_benchmark(namespaces):
@@ -51,7 +51,8 @@ def main():
     runner = pyperf.Runner(processes=1, warmups=0, values=10)
     runner.parse_args()
 
-    namespaces = [util.random_namespace() for _ in range(NUM_NAMESPACES)]
+    client = util.new_client()
+    namespaces = [util.random_namespace(client) for _ in range(NUM_NAMESPACES)]
 
     # Generate a small number of documents in a fair number of namespaces
     # outside the benchmark function.
