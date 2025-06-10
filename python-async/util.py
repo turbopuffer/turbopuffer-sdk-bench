@@ -28,7 +28,7 @@ def random_documents(num_docs, text_content_size):
     return [random_document(text_content_size) for _ in range(num_docs)]
 
 def new_client():
-    return tpuf.AsyncTurbopuffer(region="gcp-us-central1")
+    return tpuf.AsyncTurbopuffer()
 
 def random_namespace(client):
     return client.namespace(f"turbopuffer-sdk-bench-python-{random_string(12)}")
