@@ -127,3 +127,61 @@ func IngestBaseline(eChan chan<- Event, conf Conf) {
 
 	wg.Wait()
 }
+
+// this will be iteratively adjusted and end up being whatever gets put in the docs/guide
+func IngestGuide() {
+
+}
+
+// the idea here is to have something that can be used safely from multiple goroutines, and you
+// can just basically chuck records at it and it will manage batching, parallel requests, retrys, etc
+// TODO: error propagating, also i think the client lib handles retrys internally to a certain extent
+
+type Ingest struct {
+	client     turbopuffer.Client
+	namespaces map[string]*IngestNamespace
+	nsLock     sync.RWMutex
+	opts       IngestOpts
+}
+
+func (i *Ingest) Push(row turbopuffer.Row, namespace string) {
+	// first check if we're already managing the namespace
+	i.nsLock.RLock()
+	if ns, exists := i.namespaces[namespace]; exists {
+		ns.lock.Lock()
+		defer ns.lock.Unlock()
+		defer i.nsLock.RUnlock()
+
+		ns.currentBatch = append(ns.currentBatch, row)
+		if len(ns.currentBatch) >= i.opts.BatchSize {
+			// batch is full, send the request
+			go writeBatch(&ns.ns, ns.currentBatch)
+			ns.currentBatch = make([]turbopuffer.Row, 0, i.opts.BatchSize)
+		}
+	} else {
+		i.nsLock.RUnlock()
+		i.nsLock.Lock()
+		defer i.nsLock.Unlock()
+
+		batch := make([]turbopuffer.Row, 0, i.opts.BatchSize)
+		batch = append(batch, row)
+		i.namespaces[namespace] = &IngestNamespace{
+			ns:           i.client.Namespace(namespace),
+			currentBatch: batch,
+		}
+	}
+
+}
+func (i *Ingest) Flush() {}
+
+type IngestOpts struct {
+	BatchSize int
+}
+type IngestNamespace struct {
+	ns           turbopuffer.Namespace
+	lock         sync.Mutex
+	currentBatch []turbopuffer.Row
+}
+
+func writeBatch(ns *turbopuffer.Namespace, batch []turbopuffer.Row) {
+}
