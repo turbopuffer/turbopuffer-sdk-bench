@@ -1,0 +1,103 @@
+{
+  "conf": {
+    "num_docs": 1048576,
+    "docs_per_batch": 4096,
+    "vec_size": 1024,
+    "content_size": 64,
+    "concurrency": 4,
+    "retry_after": 10000000000,
+    "max_retries": 2,
+    "granularity": 10000000000
+  },
+  "snaps": [
+    {
+      "docs": 65536,
+      "misses": 0,
+      "miss_per_sec": 0,
+      "doc_per_sec": 6553.6
+    },
+    {
+      "docs": 65536,
+      "misses": 0,
+      "miss_per_sec": 0,
+      "doc_per_sec": 6553.6
+    },
+    {
+      "docs": 81920,
+      "misses": 0,
+      "miss_per_sec": 0,
+      "doc_per_sec": 8192
+    },
+    {
+      "docs": 73728,
+      "misses": 0,
+      "miss_per_sec": 0,
+      "doc_per_sec": 7372.8
+    },
+    {
+      "docs": 81920,
+      "misses": 0,
+      "miss_per_sec": 0,
+      "doc_per_sec": 8192
+    },
+    {
+      "docs": 81920,
+      "misses": 0,
+      "miss_per_sec": 0,
+      "doc_per_sec": 8192
+    },
+    {
+      "docs": 81920,
+      "misses": 0,
+      "miss_per_sec": 0,
+      "doc_per_sec": 8192
+    },
+    {
+      "docs": 81920,
+      "misses": 0,
+      "miss_per_sec": 0,
+      "doc_per_sec": 8192
+    },
+    {
+      "docs": 81920,
+      "misses": 0,
+      "miss_per_sec": 0,
+      "doc_per_sec": 8192
+    },
+    {
+      "docs": 81920,
+      "misses": 0,
+      "miss_per_sec": 0,
+      "doc_per_sec": 8192
+    },
+    {
+      "docs": 73728,
+      "misses": 0,
+      "miss_per_sec": 0,
+      "doc_per_sec": 7372.8
+    },
+    {
+      "docs": 81920,
+      "misses": 0,
+      "miss_per_sec": 0,
+      "doc_per_sec": 8192
+    },
+    {
+      "docs": 81920,
+      "misses": 0,
+      "miss_per_sec": 0,
+      "doc_per_sec": 8192
+    },
+    {
+      "docs": 32768,
+      "misses": 0,
+      "miss_per_sec": 0,
+      "doc_per_sec": 3276.8
+    }
+  ],
+  "total_duration": 133251607692,
+  "total_docs": 1048576,
+  "total_misses": 0,
+  "miss_per_sec": 0,
+  "doc_per_sec": 7869.143330890958
+}

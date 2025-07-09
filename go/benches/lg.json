@@ -1,0 +1,446 @@
+{
+  "conf": {
+    "num_docs": 5242880,
+    "docs_per_batch": 8192,
+    "num_ns": 0,
+    "vec_size": 1024,
+    "content_size": 64,
+    "concurrency": 8,
+    "retry_after": 10000000000,
+    "max_retries": 2,
+    "granularity": 10000000000
+  },
+  "snaps": [
+    {
+      "docs": 65536,
+      "misses": 0,
+      "miss_per_sec": 0,
+      "doc_per_sec": 6553.6
+    },
+    {
+      "docs": 73728,
+      "misses": 0,
+      "miss_per_sec": 0,
+      "doc_per_sec": 7372.8
+    },
+    {
+      "docs": 139264,
+      "misses": 0,
+      "miss_per_sec": 0,
+      "doc_per_sec": 13926.4
+    },
+    {
+      "docs": 81920,
+      "misses": 0,
+      "miss_per_sec": 0,
+      "doc_per_sec": 8192
+    },
+    {
+      "docs": 122880,
+      "misses": 0,
+      "miss_per_sec": 0,
+      "doc_per_sec": 12288
+    },
+    {
+      "docs": 98304,
+      "misses": 0,
+      "miss_per_sec": 0,
+      "doc_per_sec": 9830.4
+    },
+    {
+      "docs": 139264,
+      "misses": 0,
+      "miss_per_sec": 0,
+      "doc_per_sec": 13926.4
+    },
+    {
+      "docs": 98304,
+      "misses": 0,
+      "miss_per_sec": 0,
+      "doc_per_sec": 9830.4
+    },
+    {
+      "docs": 131072,
+      "misses": 0,
+      "miss_per_sec": 0,
+      "doc_per_sec": 13107.2
+    },
+    {
+      "docs": 98304,
+      "misses": 0,
+      "miss_per_sec": 0,
+      "doc_per_sec": 9830.4
+    },
+    {
+      "docs": 139264,
+      "misses": 0,
+      "miss_per_sec": 0,
+      "doc_per_sec": 13926.4
+    },
+    {
+      "docs": 163840,
+      "misses": 0,
+      "miss_per_sec": 0,
+      "doc_per_sec": 16384
+    },
+    {
+      "docs": 163840,
+      "misses": 0,
+      "miss_per_sec": 0,
+      "doc_per_sec": 16384
+    },
+    {
+      "docs": 32768,
+      "misses": 8,
+      "miss_per_sec": 0.8,
+      "doc_per_sec": 3276.8
+    },
+    {
+      "docs": 0,
+      "misses": 8,
+      "miss_per_sec": 0.8,
+      "doc_per_sec": 0
+    },
+    {
+      "docs": 32768,
+      "misses": 4,
+      "miss_per_sec": 0.4,
+      "doc_per_sec": 3276.8
+    },
+    {
+      "docs": 73728,
+      "misses": 0,
+      "miss_per_sec": 0,
+      "doc_per_sec": 7372.8
+    },
+    {
+      "docs": 163840,
+      "misses": 0,
+      "miss_per_sec": 0,
+      "doc_per_sec": 16384
+    },
+    {
+      "docs": 163840,
+      "misses": 0,
+      "miss_per_sec": 0,
+      "doc_per_sec": 16384
+    },
+    {
+      "docs": 131072,
+      "misses": 0,
+      "miss_per_sec": 0,
+      "doc_per_sec": 13107.2
+    },
+    {
+      "docs": 65536,
+      "misses": 8,
+      "miss_per_sec": 0.8,
+      "doc_per_sec": 6553.6
+    },
+    {
+      "docs": 0,
+      "misses": 8,
+      "miss_per_sec": 0.8,
+      "doc_per_sec": 0
+    },
+    {
+      "docs": 0,
+      "misses": 8,
+      "miss_per_sec": 0.8,
+      "doc_per_sec": 0
+    },
+    {
+      "docs": 0,
+      "misses": 0,
+      "miss_per_sec": 0,
+      "doc_per_sec": 0
+    },
+    {
+      "docs": 131072,
+      "misses": 0,
+      "miss_per_sec": 0,
+      "doc_per_sec": 13107.2
+    },
+    {
+      "docs": 139264,
+      "misses": 0,
+      "miss_per_sec": 0,
+      "doc_per_sec": 13926.4
+    },
+    {
+      "docs": 163840,
+      "misses": 0,
+      "miss_per_sec": 0,
+      "doc_per_sec": 16384
+    },
+    {
+      "docs": 163840,
+      "misses": 0,
+      "miss_per_sec": 0,
+      "doc_per_sec": 16384
+    },
+    {
+      "docs": 163840,
+      "misses": 0,
+      "miss_per_sec": 0,
+      "doc_per_sec": 16384
+    },
+    {
+      "docs": 131072,
+      "misses": 0,
+      "miss_per_sec": 0,
+      "doc_per_sec": 13107.2
+    },
+    {
+      "docs": 90112,
+      "misses": 8,
+      "miss_per_sec": 0.8,
+      "doc_per_sec": 9011.2
+    },
+    {
+      "docs": 0,
+      "misses": 8,
+      "miss_per_sec": 0.8,
+      "doc_per_sec": 0
+    },
+    {
+      "docs": 0,
+      "misses": 0,
+      "miss_per_sec": 0,
+      "doc_per_sec": 0
+    },
+    {
+      "docs": 0,
+      "misses": 8,
+      "miss_per_sec": 0.8,
+      "doc_per_sec": 0
+    },
+    {
+      "docs": 0,
+      "misses": 8,
+      "miss_per_sec": 0.8,
+      "doc_per_sec": 0
+    },
+    {
+      "docs": 0,
+      "misses": 8,
+      "miss_per_sec": 0.8,
+      "doc_per_sec": 0
+    },
+    {
+      "docs": 0,
+      "misses": 8,
+      "miss_per_sec": 0.8,
+      "doc_per_sec": 0
+    },
+    {
+      "docs": 0,
+      "misses": 3,
+      "miss_per_sec": 0.3,
+      "doc_per_sec": 0
+    },
+    {
+      "docs": 0,
+      "misses": 6,
+      "miss_per_sec": 0.6,
+      "doc_per_sec": 0
+    },
+    {
+      "docs": 0,
+      "misses": 7,
+      "miss_per_sec": 0.7,
+      "doc_per_sec": 0
+    },
+    {
+      "docs": 0,
+      "misses": 8,
+      "miss_per_sec": 0.8,
+      "doc_per_sec": 0
+    },
+    {
+      "docs": 0,
+      "misses": 8,
+      "miss_per_sec": 0.8,
+      "doc_per_sec": 0
+    },
+    {
+      "docs": 0,
+      "misses": 3,
+      "miss_per_sec": 0.3,
+      "doc_per_sec": 0
+    },
+    {
+      "docs": 32768,
+      "misses": 5,
+      "miss_per_sec": 0.5,
+      "doc_per_sec": 3276.8
+    },
+    {
+      "docs": 98304,
+      "misses": 0,
+      "miss_per_sec": 0,
+      "doc_per_sec": 9830.4
+    },
+    {
+      "docs": 81920,
+      "misses": 0,
+      "miss_per_sec": 0,
+      "doc_per_sec": 8192
+    },
+    {
+      "docs": 139264,
+      "misses": 0,
+      "miss_per_sec": 0,
+      "doc_per_sec": 13926.4
+    },
+    {
+      "docs": 147456,
+      "misses": 0,
+      "miss_per_sec": 0,
+      "doc_per_sec": 14745.6
+    },
+    {
+      "docs": 131072,
+      "misses": 0,
+      "miss_per_sec": 0,
+      "doc_per_sec": 13107.2
+    },
+    {
+      "docs": 155648,
+      "misses": 0,
+      "miss_per_sec": 0,
+      "doc_per_sec": 15564.8
+    },
+    {
+      "docs": 114688,
+      "misses": 0,
+      "miss_per_sec": 0,
+      "doc_per_sec": 11468.8
+    },
+    {
+      "docs": 73728,
+      "misses": 8,
+      "miss_per_sec": 0.8,
+      "doc_per_sec": 7372.8
+    },
+    {
+      "docs": 0,
+      "misses": 8,
+      "miss_per_sec": 0.8,
+      "doc_per_sec": 0
+    },
+    {
+      "docs": 0,
+      "misses": 8,
+      "miss_per_sec": 0.8,
+      "doc_per_sec": 0
+    },
+    {
+      "docs": 0,
+      "misses": 2,
+      "miss_per_sec": 0.2,
+      "doc_per_sec": 0
+    },
+    {
+      "docs": 0,
+      "misses": 6,
+      "miss_per_sec": 0.6,
+      "doc_per_sec": 0
+    },
+    {
+      "docs": 0,
+      "misses": 8,
+      "miss_per_sec": 0.8,
+      "doc_per_sec": 0
+    },
+    {
+      "docs": 0,
+      "misses": 8,
+      "miss_per_sec": 0.8,
+      "doc_per_sec": 0
+    },
+    {
+      "docs": 32768,
+      "misses": 0,
+      "miss_per_sec": 0,
+      "doc_per_sec": 3276.8
+    },
+    {
+      "docs": 163840,
+      "misses": 0,
+      "miss_per_sec": 0,
+      "doc_per_sec": 16384
+    },
+    {
+      "docs": 163840,
+      "misses": 0,
+      "miss_per_sec": 0,
+      "doc_per_sec": 16384
+    },
+    {
+      "docs": 163840,
+      "misses": 0,
+      "miss_per_sec": 0,
+      "doc_per_sec": 16384
+    },
+    {
+      "docs": 131072,
+      "misses": 0,
+      "miss_per_sec": 0,
+      "doc_per_sec": 13107.2
+    },
+    {
+      "docs": 139264,
+      "misses": 0,
+      "miss_per_sec": 0,
+      "doc_per_sec": 13926.4
+    },
+    {
+      "docs": 139264,
+      "misses": 0,
+      "miss_per_sec": 0,
+      "doc_per_sec": 13926.4
+    },
+    {
+      "docs": 0,
+      "misses": 7,
+      "miss_per_sec": 0.7,
+      "doc_per_sec": 0
+    },
+    {
+      "docs": 0,
+      "misses": 7,
+      "miss_per_sec": 0.7,
+      "doc_per_sec": 0
+    },
+    {
+      "docs": 0,
+      "misses": 7,
+      "miss_per_sec": 0.7,
+      "doc_per_sec": 0
+    },
+    {
+      "docs": 0,
+      "misses": 2,
+      "miss_per_sec": 0.2,
+      "doc_per_sec": 0
+    },
+    {
+      "docs": 106496,
+      "misses": 0,
+      "miss_per_sec": 0,
+      "doc_per_sec": 10649.6
+    },
+    {
+      "docs": 65536,
+      "misses": 0,
+      "miss_per_sec": 0,
+      "doc_per_sec": 6553.6
+    }
+  ],
+  "total_duration": 708016995868,
+  "total_docs": 5242880,
+  "total_misses": 203,
+  "miss_per_sec": 0.28671628108465147,
+  "doc_per_sec": 7405.0199791778205
+}

@@ -1,0 +1,649 @@
+{
+  "conf": {
+    "num_docs": 1048576,
+    "docs_per_batch": 1024,
+    "vec_size": 1024,
+    "content_size": 64,
+    "concurrency": 1,
+    "retry_after": 10000000000,
+    "max_retries": 2,
+    "granularity": 10000000000
+  },
+  "snaps": [
+    {
+      "docs": 10240,
+      "misses": 0,
+      "miss_per_sec": 0,
+      "doc_per_sec": 1024
+    },
+    {
+      "docs": 10240,
+      "misses": 0,
+      "miss_per_sec": 0,
+      "doc_per_sec": 1024
+    },
+    {
+      "docs": 10240,
+      "misses": 0,
+      "miss_per_sec": 0,
+      "doc_per_sec": 1024
+    },
+    {
+      "docs": 10240,
+      "misses": 0,
+      "miss_per_sec": 0,
+      "doc_per_sec": 1024
+    },
+    {
+      "docs": 9216,
+      "misses": 0,
+      "miss_per_sec": 0,
+      "doc_per_sec": 921.6
+    },
+    {
+      "docs": 10240,
+      "misses": 0,
+      "miss_per_sec": 0,
+      "doc_per_sec": 1024
+    },
+    {
+      "docs": 9216,
+      "misses": 0,
+      "miss_per_sec": 0,
+      "doc_per_sec": 921.6
+    },
+    {
+      "docs": 10240,
+      "misses": 0,
+      "miss_per_sec": 0,
+      "doc_per_sec": 1024
+    },
+    {
+      "docs": 10240,
+      "misses": 0,
+      "miss_per_sec": 0,
+      "doc_per_sec": 1024
+    },
+    {
+      "docs": 10240,
+      "misses": 0,
+      "miss_per_sec": 0,
+      "doc_per_sec": 1024
+    },
+    {
+      "docs": 10240,
+      "misses": 0,
+      "miss_per_sec": 0,
+      "doc_per_sec": 1024
+    },
+    {
+      "docs": 10240,
+      "misses": 0,
+      "miss_per_sec": 0,
+      "doc_per_sec": 1024
+    },
+    {
+      "docs": 10240,
+      "misses": 0,
+      "miss_per_sec": 0,
+      "doc_per_sec": 1024
+    },
+    {
+      "docs": 10240,
+      "misses": 0,
+      "miss_per_sec": 0,
+      "doc_per_sec": 1024
+    },
+    {
+      "docs": 9216,
+      "misses": 0,
+      "miss_per_sec": 0,
+      "doc_per_sec": 921.6
+    },
+    {
+      "docs": 11264,
+      "misses": 0,
+      "miss_per_sec": 0,
+      "doc_per_sec": 1126.4
+    },
+    {
+      "docs": 10240,
+      "misses": 0,
+      "miss_per_sec": 0,
+      "doc_per_sec": 1024
+    },
+    {
+      "docs": 10240,
+      "misses": 0,
+      "miss_per_sec": 0,
+      "doc_per_sec": 1024
+    },
+    {
+      "docs": 8192,
+      "misses": 0,
+      "miss_per_sec": 0,
+      "doc_per_sec": 819.2
+    },
+    {
+      "docs": 10240,
+      "misses": 0,
+      "miss_per_sec": 0,
+      "doc_per_sec": 1024
+    },
+    {
+      "docs": 9216,
+      "misses": 0,
+      "miss_per_sec": 0,
+      "doc_per_sec": 921.6
+    },
+    {
+      "docs": 11264,
+      "misses": 0,
+      "miss_per_sec": 0,
+      "doc_per_sec": 1126.4
+    },
+    {
+      "docs": 8192,
+      "misses": 0,
+      "miss_per_sec": 0,
+      "doc_per_sec": 819.2
+    },
+    {
+      "docs": 9216,
+      "misses": 0,
+      "miss_per_sec": 0,
+      "doc_per_sec": 921.6
+    },
+    {
+      "docs": 10240,
+      "misses": 0,
+      "miss_per_sec": 0,
+      "doc_per_sec": 1024
+    },
+    {
+      "docs": 10240,
+      "misses": 0,
+      "miss_per_sec": 0,
+      "doc_per_sec": 1024
+    },
+    {
+      "docs": 10240,
+      "misses": 0,
+      "miss_per_sec": 0,
+      "doc_per_sec": 1024
+    },
+    {
+      "docs": 9216,
+      "misses": 0,
+      "miss_per_sec": 0,
+      "doc_per_sec": 921.6
+    },
+    {
+      "docs": 10240,
+      "misses": 0,
+      "miss_per_sec": 0,
+      "doc_per_sec": 1024
+    },
+    {
+      "docs": 10240,
+      "misses": 0,
+      "miss_per_sec": 0,
+      "doc_per_sec": 1024
+    },
+    {
+      "docs": 8192,
+      "misses": 0,
+      "miss_per_sec": 0,
+      "doc_per_sec": 819.2
+    },
+    {
+      "docs": 10240,
+      "misses": 0,
+      "miss_per_sec": 0,
+      "doc_per_sec": 1024
+    },
+    {
+      "docs": 9216,
+      "misses": 0,
+      "miss_per_sec": 0,
+      "doc_per_sec": 921.6
+    },
+    {
+      "docs": 10240,
+      "misses": 0,
+      "miss_per_sec": 0,
+      "doc_per_sec": 1024
+    },
+    {
+      "docs": 10240,
+      "misses": 0,
+      "miss_per_sec": 0,
+      "doc_per_sec": 1024
+    },
+    {
+      "docs": 10240,
+      "misses": 0,
+      "miss_per_sec": 0,
+      "doc_per_sec": 1024
+    },
+    {
+      "docs": 10240,
+      "misses": 0,
+      "miss_per_sec": 0,
+      "doc_per_sec": 1024
+    },
+    {
+      "docs": 10240,
+      "misses": 0,
+      "miss_per_sec": 0,
+      "doc_per_sec": 1024
+    },
+    {
+      "docs": 10240,
+      "misses": 0,
+      "miss_per_sec": 0,
+      "doc_per_sec": 1024
+    },
+    {
+      "docs": 10240,
+      "misses": 0,
+      "miss_per_sec": 0,
+      "doc_per_sec": 1024
+    },
+    {
+      "docs": 10240,
+      "misses": 0,
+      "miss_per_sec": 0,
+      "doc_per_sec": 1024
+    },
+    {
+      "docs": 10240,
+      "misses": 0,
+      "miss_per_sec": 0,
+      "doc_per_sec": 1024
+    },
+    {
+      "docs": 10240,
+      "misses": 0,
+      "miss_per_sec": 0,
+      "doc_per_sec": 1024
+    },
+    {
+      "docs": 10240,
+      "misses": 0,
+      "miss_per_sec": 0,
+      "doc_per_sec": 1024
+    },
+    {
+      "docs": 10240,
+      "misses": 0,
+      "miss_per_sec": 0,
+      "doc_per_sec": 1024
+    },
+    {
+      "docs": 10240,
+      "misses": 0,
+      "miss_per_sec": 0,
+      "doc_per_sec": 1024
+    },
+    {
+      "docs": 9216,
+      "misses": 0,
+      "miss_per_sec": 0,
+      "doc_per_sec": 921.6
+    },
+    {
+      "docs": 9216,
+      "misses": 0,
+      "miss_per_sec": 0,
+      "doc_per_sec": 921.6
+    },
+    {
+      "docs": 10240,
+      "misses": 0,
+      "miss_per_sec": 0,
+      "doc_per_sec": 1024
+    },
+    {
+      "docs": 10240,
+      "misses": 0,
+      "miss_per_sec": 0,
+      "doc_per_sec": 1024
+    },
+    {
+      "docs": 9216,
+      "misses": 0,
+      "miss_per_sec": 0,
+      "doc_per_sec": 921.6
+    },
+    {
+      "docs": 10240,
+      "misses": 0,
+      "miss_per_sec": 0,
+      "doc_per_sec": 1024
+    },
+    {
+      "docs": 10240,
+      "misses": 0,
+      "miss_per_sec": 0,
+      "doc_per_sec": 1024
+    },
+    {
+      "docs": 9216,
+      "misses": 0,
+      "miss_per_sec": 0,
+      "doc_per_sec": 921.6
+    },
+    {
+      "docs": 10240,
+      "misses": 0,
+      "miss_per_sec": 0,
+      "doc_per_sec": 1024
+    },
+    {
+      "docs": 10240,
+      "misses": 0,
+      "miss_per_sec": 0,
+      "doc_per_sec": 1024
+    },
+    {
+      "docs": 10240,
+      "misses": 0,
+      "miss_per_sec": 0,
+      "doc_per_sec": 1024
+    },
+    {
+      "docs": 10240,
+      "misses": 0,
+      "miss_per_sec": 0,
+      "doc_per_sec": 1024
+    },
+    {
+      "docs": 10240,
+      "misses": 0,
+      "miss_per_sec": 0,
+      "doc_per_sec": 1024
+    },
+    {
+      "docs": 9216,
+      "misses": 0,
+      "miss_per_sec": 0,
+      "doc_per_sec": 921.6
+    },
+    {
+      "docs": 10240,
+      "misses": 0,
+      "miss_per_sec": 0,
+      "doc_per_sec": 1024
+    },
+    {
+      "docs": 10240,
+      "misses": 0,
+      "miss_per_sec": 0,
+      "doc_per_sec": 1024
+    },
+    {
+      "docs": 10240,
+      "misses": 0,
+      "miss_per_sec": 0,
+      "doc_per_sec": 1024
+    },
+    {
+      "docs": 10240,
+      "misses": 0,
+      "miss_per_sec": 0,
+      "doc_per_sec": 1024
+    },
+    {
+      "docs": 10240,
+      "misses": 0,
+      "miss_per_sec": 0,
+      "doc_per_sec": 1024
+    },
+    {
+      "docs": 10240,
+      "misses": 0,
+      "miss_per_sec": 0,
+      "doc_per_sec": 1024
+    },
+    {
+      "docs": 10240,
+      "misses": 0,
+      "miss_per_sec": 0,
+      "doc_per_sec": 1024
+    },
+    {
+      "docs": 10240,
+      "misses": 0,
+      "miss_per_sec": 0,
+      "doc_per_sec": 1024
+    },
+    {
+      "docs": 10240,
+      "misses": 0,
+      "miss_per_sec": 0,
+      "doc_per_sec": 1024
+    },
+    {
+      "docs": 10240,
+      "misses": 0,
+      "miss_per_sec": 0,
+      "doc_per_sec": 1024
+    },
+    {
+      "docs": 9216,
+      "misses": 0,
+      "miss_per_sec": 0,
+      "doc_per_sec": 921.6
+    },
+    {
+      "docs": 10240,
+      "misses": 0,
+      "miss_per_sec": 0,
+      "doc_per_sec": 1024
+    },
+    {
+      "docs": 9216,
+      "misses": 0,
+      "miss_per_sec": 0,
+      "doc_per_sec": 921.6
+    },
+    {
+      "docs": 10240,
+      "misses": 0,
+      "miss_per_sec": 0,
+      "doc_per_sec": 1024
+    },
+    {
+      "docs": 10240,
+      "misses": 0,
+      "miss_per_sec": 0,
+      "doc_per_sec": 1024
+    },
+    {
+      "docs": 9216,
+      "misses": 0,
+      "miss_per_sec": 0,
+      "doc_per_sec": 921.6
+    },
+    {
+      "docs": 10240,
+      "misses": 0,
+      "miss_per_sec": 0,
+      "doc_per_sec": 1024
+    },
+    {
+      "docs": 10240,
+      "misses": 0,
+      "miss_per_sec": 0,
+      "doc_per_sec": 1024
+    },
+    {
+      "docs": 10240,
+      "misses": 0,
+      "miss_per_sec": 0,
+      "doc_per_sec": 1024
+    },
+    {
+      "docs": 10240,
+      "misses": 0,
+      "miss_per_sec": 0,
+      "doc_per_sec": 1024
+    },
+    {
+      "docs": 10240,
+      "misses": 0,
+      "miss_per_sec": 0,
+      "doc_per_sec": 1024
+    },
+    {
+      "docs": 10240,
+      "misses": 0,
+      "miss_per_sec": 0,
+      "doc_per_sec": 1024
+    },
+    {
+      "docs": 10240,
+      "misses": 0,
+      "miss_per_sec": 0,
+      "doc_per_sec": 1024
+    },
+    {
+      "docs": 9216,
+      "misses": 0,
+      "miss_per_sec": 0,
+      "doc_per_sec": 921.6
+    },
+    {
+      "docs": 10240,
+      "misses": 0,
+      "miss_per_sec": 0,
+      "doc_per_sec": 1024
+    },
+    {
+      "docs": 10240,
+      "misses": 0,
+      "miss_per_sec": 0,
+      "doc_per_sec": 1024
+    },
+    {
+      "docs": 10240,
+      "misses": 0,
+      "miss_per_sec": 0,
+      "doc_per_sec": 1024
+    },
+    {
+      "docs": 10240,
+      "misses": 0,
+      "miss_per_sec": 0,
+      "doc_per_sec": 1024
+    },
+    {
+      "docs": 9216,
+      "misses": 0,
+      "miss_per_sec": 0,
+      "doc_per_sec": 921.6
+    },
+    {
+      "docs": 10240,
+      "misses": 0,
+      "miss_per_sec": 0,
+      "doc_per_sec": 1024
+    },
+    {
+      "docs": 10240,
+      "misses": 0,
+      "miss_per_sec": 0,
+      "doc_per_sec": 1024
+    },
+    {
+      "docs": 10240,
+      "misses": 0,
+      "miss_per_sec": 0,
+      "doc_per_sec": 1024
+    },
+    {
+      "docs": 9216,
+      "misses": 0,
+      "miss_per_sec": 0,
+      "doc_per_sec": 921.6
+    },
+    {
+      "docs": 10240,
+      "misses": 0,
+      "miss_per_sec": 0,
+      "doc_per_sec": 1024
+    },
+    {
+      "docs": 10240,
+      "misses": 0,
+      "miss_per_sec": 0,
+      "doc_per_sec": 1024
+    },
+    {
+      "docs": 9216,
+      "misses": 0,
+      "miss_per_sec": 0,
+      "doc_per_sec": 921.6
+    },
+    {
+      "docs": 10240,
+      "misses": 0,
+      "miss_per_sec": 0,
+      "doc_per_sec": 1024
+    },
+    {
+      "docs": 10240,
+      "misses": 0,
+      "miss_per_sec": 0,
+      "doc_per_sec": 1024
+    },
+    {
+      "docs": 10240,
+      "misses": 0,
+      "miss_per_sec": 0,
+      "doc_per_sec": 1024
+    },
+    {
+      "docs": 10240,
+      "misses": 0,
+      "miss_per_sec": 0,
+      "doc_per_sec": 1024
+    },
+    {
+      "docs": 10240,
+      "misses": 0,
+      "miss_per_sec": 0,
+      "doc_per_sec": 1024
+    },
+    {
+      "docs": 9216,
+      "misses": 0,
+      "miss_per_sec": 0,
+      "doc_per_sec": 921.6
+    },
+    {
+      "docs": 10240,
+      "misses": 0,
+      "miss_per_sec": 0,
+      "doc_per_sec": 1024
+    },
+    {
+      "docs": 10240,
+      "misses": 0,
+      "miss_per_sec": 0,
+      "doc_per_sec": 1024
+    },
+    {
+      "docs": 8192,
+      "misses": 0,
+      "miss_per_sec": 0,
+      "doc_per_sec": 819.2
+    }
+  ],
+  "total_duration": 1047203222114,
+  "total_docs": 1048576,
+  "total_misses": 0,
+  "miss_per_sec": 0,
+  "doc_per_sec": 1001.3108992189966
+}
