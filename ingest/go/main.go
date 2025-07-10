@@ -8,6 +8,7 @@ import (
 	"fmt"
 	"log"
 	"math/rand/v2"
+	// "strconv"
 	"sync"
 
 	"os"
@@ -17,9 +18,9 @@ import (
 	"github.com/turbopuffer/turbopuffer-go/option"
 )
 
-const DEFAULT_CONCURRENCY int = 1
-const DEFAULT_NUM_DOCS int = 1024 * 1024
-const DEFAULT_DOCS_PER_BATCH int = 1024
+const DEFAULT_CONCURRENCY int = 16
+const DEFAULT_NUM_DOCS int = 1024 * 1024 * 10
+const DEFAULT_DOCS_PER_BATCH int = 20480
 
 const DEFAULT_VEC_SIZE int = 1024
 const DEFAULT_CONTENT_SIZE int = 64
@@ -121,13 +122,14 @@ type Bench struct {
 }
 
 func runBench(conf Conf, eChan chan<- Event) {
+	log.Printf("simple retry\n")
 	ctx := context.Background()
 	client := turbopuffer.NewClient(
 		option.WithAPIKey(os.Getenv("TURBOPUFFER_API_KEY")),
-		option.WithRegion("gcp-us-central1"),
-		option.WithMaxRetries(0), // so that we can get more fine grained control/stats for retries
+		option.WithRegion("aws-test-1"),
+		option.WithMaxRetries(0),
 	)
-	ns := client.Namespace("bench")
+	ns := client.Namespace("andrew-bench")
 
 	numBatches := conf.NumDocs / conf.DocsPerBatch
 	batchPerConc := numBatches / conf.Concurrency
@@ -159,16 +161,28 @@ func runBench(conf Conf, eChan chan<- Event) {
 						var typed *turbopuffer.Error
 						if errors.As(err, &typed) {
 							if typed.StatusCode == TOO_MANY_REQS {
-								log.Printf("429 on try %d\n", i)
+								log.Printf("429 on try %d, ", i)
 								eChan <- Event{
 									kind: MissEvent,
 									docs: len(batch),
 								}
+								// if strs, ok := typed.Response.Header["Retry-After"]; ok {
+								// 	seconds, err := strconv.Atoi(strs[0])
+								// 	if err != nil {
+								// 		log.Fatalf("%v\n", err)
+								// 	}
+								// 	d := time.Second * time.Duration(seconds/2)
+								// 	log.Printf("retrying in %v (from server)\n", d)
+								// 	time.Sleep(d)
+								// } else {
+								log.Printf("retrying in %v (from conf)\n", conf.RetryAfter)
 								time.Sleep(conf.RetryAfter)
-								continue
+								// }
 							} else {
-								log.Fatalf("%v\n", err)
+								log.Printf("non 429 %v\n", err)
+								time.Sleep(conf.RetryAfter)
 							}
+							continue
 						} else {
 							log.Fatalf("%v\n", err)
 						}

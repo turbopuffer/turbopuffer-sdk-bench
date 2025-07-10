@@ -1,0 +1,6 @@
+{
+  "type": "module",
+  "dependencies": {
+    "@turbopuffer/turbopuffer": "^0.10.5"
+  }
+}
