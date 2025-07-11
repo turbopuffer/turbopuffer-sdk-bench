@@ -24,8 +24,7 @@ const DEFAULT_DOCS_PER_BATCH int = 20480
 
 const DEFAULT_VEC_SIZE int = 1024
 const DEFAULT_CONTENT_SIZE int = 64
-const DEFAULT_RETRY_AFTER int = 10
-const DEFAULT_MAX_RETRIES int = 2
+const DEFAULT_RETRY_AFTER int = 60
 const DEFAULT_GRANULARITY int = 10
 
 var name = flag.String("name", "", "a unique name for this benchmark")
@@ -34,7 +33,6 @@ var docsPerBatch = flag.Int("docs-per-batch", DEFAULT_DOCS_PER_BATCH, "number of
 var vecSize = flag.Int("vec-size", DEFAULT_VEC_SIZE, "number of dimensions for vectors")
 var contentSize = flag.Int("content-size", DEFAULT_CONTENT_SIZE, "number of bytes in content attr")
 var retryAfter = flag.Int("retry-after", DEFAULT_RETRY_AFTER, "number of seconds to wait befor retrying a 429")
-var maxRetries = flag.Int("max-retries", DEFAULT_MAX_RETRIES, "max number of retries before giving up on a request")
 var concurrency = flag.Int("concurrency", DEFAULT_CONCURRENCY, "number of goroutines to use")
 var gran = flag.Int("gran", DEFAULT_GRANULARITY, "number of seconds to track stats at")
 
@@ -52,7 +50,6 @@ func main() {
 		VecSize:      *vecSize,
 		ContentSize:  *contentSize,
 		RetryAfter:   time.Duration(*retryAfter) * time.Second,
-		MaxRetries:   *maxRetries,
 		Concurrency:  *concurrency,
 		Gran:         granularity,
 	}
@@ -100,6 +97,7 @@ func main() {
 }
 
 const TOO_MANY_REQS int = 429
+const INITIAL_EST_DIV int = 8
 
 type Conf struct {
 	NumDocs      int           `json:"num_docs"`
@@ -122,7 +120,7 @@ type Bench struct {
 }
 
 func runBench(conf Conf, eChan chan<- Event) {
-	log.Printf("simple retry\n")
+	log.Printf("60sec exp backoff")
 	ctx := context.Background()
 	client := turbopuffer.NewClient(
 		option.WithAPIKey(os.Getenv("TURBOPUFFER_API_KEY")),
@@ -145,8 +143,10 @@ func runBench(conf Conf, eChan chan<- Event) {
 					conf.ContentSize,
 				)
 
-				// simple retry loop
+				// retry loop
 				i := 0
+				// estDiv := INITIAL_EST_DIV
+				retry := conf.RetryAfter
 				for {
 					i += 1
 					_, err := ns.Write(
@@ -171,12 +171,14 @@ func runBench(conf Conf, eChan chan<- Event) {
 								// 	if err != nil {
 								// 		log.Fatalf("%v\n", err)
 								// 	}
-								// 	d := time.Second * time.Duration(seconds/2)
+								// 	d := time.Second * time.Duration(seconds/4)
+								// 	// estDiv = min(1, estDiv/2)
 								// 	log.Printf("retrying in %v (from server)\n", d)
 								// 	time.Sleep(d)
 								// } else {
-								log.Printf("retrying in %v (from conf)\n", conf.RetryAfter)
-								time.Sleep(conf.RetryAfter)
+								log.Printf("retrying in %v (from conf)\n", retry)
+								retry *= 2
+								time.Sleep(retry)
 								// }
 							} else {
 								log.Printf("non 429 %v\n", err)

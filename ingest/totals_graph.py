@@ -3,12 +3,11 @@ import matplotlib.pyplot as plt
 import glob
 import os
 
-def load_benchmark_files(directory='benches'):
+def load_benchmark_files(directory='benches/temp'):
     """Load all benchmark JSON files from the specified directory"""
     pattern = os.path.join(directory, '*.json')
     files = glob.glob(pattern)
     benchmarks = []
-    
     for file in files:
         try:
             with open(file, 'r') as f:
@@ -24,6 +23,8 @@ def load_benchmark_files(directory='benches'):
         except Exception as e:
             print(f"Error loading {file}: {e}")
     
+    benchmarks.sort(key=lambda x: x['filename'])
+
     return benchmarks
 
 def create_comparison_chart(benchmarks):
@@ -32,10 +33,6 @@ def create_comparison_chart(benchmarks):
     if not benchmarks:
         print("No benchmarks found")
         return
-    
-    # Sort by size order (sm, md, lg, xl)
-    size_order = {'sm': 0, 'md': 1, 'lg': 2, 'xl': 3}
-    benchmarks.sort(key=lambda x: size_order.get(x['filename'].replace('.json', ''), 999))
     
     # Extract data for plotting
     labels = [b['filename'].replace('.json', '') for b in benchmarks]

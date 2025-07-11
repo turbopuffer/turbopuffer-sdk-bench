@@ -1,7 +1,7 @@
 import json
 import matplotlib.pyplot as plt
 
-def create_benchmark_chart(filename='sm.json'):
+def create_benchmark_chart(filename='benches/go_xl-exp-60-sec.json'):
     # Load data
     with open(filename, 'r') as f:
         data = json.load(f)

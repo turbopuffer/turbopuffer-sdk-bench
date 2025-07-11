@@ -1,6 +1,14 @@
 {
   "type": "module",
   "dependencies": {
-    "@turbopuffer/turbopuffer": "^0.10.5"
+    "@turbopuffer/turbopuffer": "^0.10.5",
+    "commander": "^14.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^24.0.13",
+    "ts-node": "^10.9.2",
+    "tsx": "^4.20.3",
+    "typescript": "^5.8.3",
+    "vite-node": "^3.2.4"
   }
 }
