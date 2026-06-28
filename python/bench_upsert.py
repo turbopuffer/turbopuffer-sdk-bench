@@ -5,8 +5,8 @@ import pyperf
 import util
 
 
-def run_upsert_benchmark(docs):
-    util.upsert_into(util.random_namespace(util.new_client()), docs)
+def run_upsert_benchmark(client, docs):
+    util.upsert_into(util.random_namespace(client), docs)
 
 
 def main():
@@ -17,6 +17,8 @@ def main():
     runner = pyperf.Runner(processes=1, warmups=1, values=10)
     runner.parse_args()
 
+    # Create and reuse single client instance to avoid including init / TLS handshake in benchmark
+    client = util.new_client()
     upsert_docs = []
 
     # Generate documents outside the benchmark function.
@@ -26,6 +28,7 @@ def main():
     runner.bench_func(
         "upsert",
         run_upsert_benchmark,
+        client,
         upsert_docs,
     )
 
