@@ -1,0 +1,26 @@
+[package]
+name = "turbopuffer-sdk-bench-rust"
+version = "0.1.0"
+description = "Benchmarks for the turbopuffer Rust SDK"
+edition = "2024"
+publish = false
+
+[dependencies]
+criterion = { version = "0.8", features = ["async_tokio"] }
+futures = "0.3"
+rand = "0.9"
+tokio = { version = "1", features = ["rt"] }
+turbopuffer = "0.1.0-alpha.1"
+uuid = { version = "1", features = ["v4"] }
+
+[[bench]]
+name = "upsert"
+harness = false
+
+[[bench]]
+name = "query"
+harness = false
+
+[[bench]]
+name = "query_scale"
+harness = false
