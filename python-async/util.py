@@ -36,7 +36,10 @@ def random_namespace(client):
 async def upsert_into(ns, docs):
     await ns.write(
         upsert_rows=docs,
-        distance_metric='cosine_distance'
+        distance_metric='cosine_distance',
+        # Content isn't filtered on, and is too large to be filterable in the
+        # query benchmark.
+        schema={'content': {'type': 'string', 'filterable': False}},
     )
 
 def start_async_thread():

@@ -35,13 +35,22 @@ export function randomDocuments(numDocs: number, textContentSize: number): Row[]
     return Array.from({ length: numDocs }, () => randomDocument(textContentSize));
 }
 
+// The SDK doesn't expose a namespace handle's ID, so benchmarks that log it
+// keep track of it themselves.
+export function randomNamespaceId(): string {
+    return `turbopuffer-sdk-bench-typescript-${randomString(12)}`;
+}
+
 export function randomNamespace(client: Turbopuffer): any {
-    return client.namespace(`turbopuffer-sdk-bench-typescript-${randomString(12)}`);
+    return client.namespace(randomNamespaceId());
 }
 
 export async function upsertInto(ns: Turbopuffer.Namespace, rows: Row[]) {
     await ns.write({
         upsert_rows: rows,
-        distance_metric: 'cosine_distance'
+        distance_metric: 'cosine_distance',
+        // Content isn't filtered on, and is too large to be filterable in the
+        // query benchmark.
+        schema: { content: { type: 'string', filterable: false } },
     });
 }

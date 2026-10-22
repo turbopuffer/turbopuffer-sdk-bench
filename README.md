@@ -7,6 +7,7 @@ Available benchmarks:
 
   * [`python`](./python)
   * [`python-async`](./python-async)
+  * [`rust`](./rust)
   * [`typescript`](./typescript)
 
 ## Details
