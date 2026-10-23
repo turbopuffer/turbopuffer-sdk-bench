@@ -1879,9 +1879,9 @@ checksum = "e421abadd41a4225275504ea4d6566923418b7f05506fbc9c0fe86ba7396114b"
 
 [[package]]
 name = "turbopuffer"
-version = "0.1.0-alpha.1"
+version = "0.1.0-alpha.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "b6c92eca0ead5d423fa0f2dfac610927f037a9fc2d7a0394e9709c68f6488fae"
+checksum = "44dca49f6c313c4e8c25d88525f3bdd42e3dba8608f2b802b742c29343e49bc5"
 dependencies = [
  "bytes",
  "flate2",
